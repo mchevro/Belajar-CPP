@@ -9,14 +9,13 @@ using namespace std;
 //Global Deklarasi
 string plain_teks, cipher_teks;
 char e;
-int kunci;
 short option;
 
 //Encryption
 void encrypt() {
     for (int i = 0; i < plain_teks.length(); i++) {
         e = plain_teks[i];
-        cipher_teks = e + kunci % 26;
+        cipher_teks = e + 3 % 26;
         cout << cipher_teks;
     }
 }
@@ -26,7 +25,7 @@ void encrypt() {
 void decrypt() {
     for (int i = 0; i < cipher_teks.length(); i++) {
         e = cipher_teks[i];
-        plain_teks = e - kunci % 26;
+        plain_teks = e - 3 % 26;
         cout << plain_teks;
     }
 }
@@ -44,16 +43,12 @@ int main() {
         cout << "Teks Anda : ";
         cin.ignore(); 
         getline(cin, plain_teks);
-        cout << "Kunci : ";
-        cin >> kunci;
         encrypt();
         break;
     case 2:
         cout << "Encrypt Anda : ";
         cin.ignore(); 
         getline(cin, cipher_teks);
-        cout << "Kunci : ";
-        cin >> kunci;
         decrypt();
         break;
     default:
