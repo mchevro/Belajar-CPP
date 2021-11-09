@@ -41,14 +41,16 @@ int main() {
     switch (option) {
     case 1:
         cout << "Teks Anda : ";
-        cin >> plain_teks;
+        cin.ignore(); 
+        getline(cin, plain_teks);
         cout << "Kunci : ";
         cin >> kunci;
         encrypt();
         break;
     case 2:
         cout << "Encrypt Anda : ";
-        cin >> cipher_teks;
+        cin.ignore(); 
+        getline(cin, cipher_teks);
         cout << "Kunci : ";
         cin >> kunci;
         decrypt();
