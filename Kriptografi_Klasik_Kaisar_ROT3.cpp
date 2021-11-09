@@ -32,6 +32,7 @@ void decrypt() {
 }
 
 int main() {
+    cout << "KODE KAISAR ROT3" << endl;
     cout << "[1] Encrypt" << endl;
     cout << "[2] Decrypt" << endl;
     cout << "Pilih Opsi : ";
