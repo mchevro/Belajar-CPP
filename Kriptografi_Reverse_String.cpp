@@ -10,6 +10,7 @@ string plain_teks, cipher_teks;
 char e;
 short option;
 
+//Encryption
 void encrypt(){
     //REVERSE PLAIN TEKS
     for(int i=plain_teks.length(); i >= 0 ; i--){
@@ -18,6 +19,7 @@ void encrypt(){
     }
 }
 
+//Decryption
 void decrypt(){
     //REVERSE CIPHER TEKS
     for(int i=cipher_teks.length(); i >= 0 ; i--){
