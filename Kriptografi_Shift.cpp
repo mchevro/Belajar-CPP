@@ -6,6 +6,7 @@
 #include <string>
 using namespace std;
 
+//Global Deklarasi
 string plain_teks, cipher_teks;
 int e;
 short option;
