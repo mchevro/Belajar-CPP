@@ -1,5 +1,5 @@
 //ALGORITMA KODE KAISAR
-//REFRENCE : BUKU "PENGANTAR ILMU KRIPTOGRAFI" BY AMIKOM HAL 51
+//REFRENCE : BUKU "PENGANTAR ILMU KRIPTOGRAFI" BY AMIKOM HAL 53
 //AUTHOR : MCHEVRO
 
 #include <iostream>
@@ -15,8 +15,11 @@ short option;
 void encrypt() {
     for (int i = 0; i < plain_teks.length(); i++) {
         e = plain_teks[i];
-        cipher_teks = e + 13;
-        cout << cipher_teks;
+        e = e + 13;
+        if (e > 122){
+            e = e - 26;
+        }
+        cipher_teks = cipher_teks + e;
     }
 }
 
@@ -25,8 +28,11 @@ void encrypt() {
 void decrypt() {
     for (int i = 0; i < cipher_teks.length(); i++) {
         e = cipher_teks[i];
-        plain_teks = e - 13;
-        cout << plain_teks;
+        e = e - 13;
+        if (e < 97){
+            e = e + 26;
+        }
+        plain_teks = plain_teks + e;
     }
 }
 
@@ -44,12 +50,14 @@ int main() {
         cin.ignore(); 
         getline(cin, plain_teks);
         encrypt();
+        cout << cipher_teks;
         break;
     case 2:
         cout << "Encrypt Anda : ";
         cin.ignore(); 
         getline(cin, cipher_teks);
         decrypt();
+        cout << plain_teks;
         break;
     default:
         cout << "Tidak Ada Pilihan!";
