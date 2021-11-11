@@ -3,7 +3,6 @@
 //AUTHOR : MCHEVRO
 
 #include <iostream>
-#include <string>
 using namespace std;
 
 //Global Deklarasi
