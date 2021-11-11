@@ -8,12 +8,15 @@ int main(){
     string plain_teks, cipher_teks, kunci;
     char e_plain_teks, e_kunci;
     
-    plain_teks = "ONETIMEPAD";
-    kunci = "TBFRGFARFM";
+    cout << "KODE OTP" << endl;
+    cout << "Teks Anda : ";
+    cin >> plain_teks;
+    
+    kunci = "Tbfrgfarfm";
     
     for(int i=0; i < plain_teks.length(); i++){
-        e_plain_teks = plain_teks[i];
-        e_kunci = kunci[i];
+        e_plain_teks = toupper(plain_teks[i]);
+        e_kunci = toupper(kunci[i]);
         
         e_plain_teks = ((e_plain_teks + e_kunci) - 128) % 26 + 64;
         cipher_teks = cipher_teks + e_plain_teks;
