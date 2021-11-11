@@ -3,20 +3,22 @@
 //AUTHOR : MCHEVRO
 
 #include <iostream>
-#include <string>
 using namespace std;
 
 //Global Deklarasi
 string plain_teks, cipher_teks;
-char e;
+int e;
 short option;
 
 //Encryption
 void encrypt() {
     for (int i = 0; i < plain_teks.length(); i++) {
-        e = plain_teks[i];
-        cipher_teks = e + 3 % 26;
-        cout << cipher_teks;
+        e = tolower(plain_teks[i]);
+        e = e + 3;
+        if (e > 122) {
+            e = e - 26;
+        }
+        cipher_teks = cipher_teks + char(e);
     }
 }
 
@@ -24,14 +26,17 @@ void encrypt() {
 //Decryption
 void decrypt() {
     for (int i = 0; i < cipher_teks.length(); i++) {
-        e = cipher_teks[i];
-        plain_teks = e - 3 % 26;
-        cout << plain_teks;
+        e = tolower(cipher_teks[i]);
+        e = e - 3;
+        if (e < 97) {
+            e = e + 26;
+        }
+        plain_teks = plain_teks + char(e);
     }
 }
 
 int main() {
-    cout << "KODE KAISAR ROT3" << endl;
+    cout << "KODE KAISAR ROT13" << endl;
     cout << "[1] Encrypt" << endl;
     cout << "[2] Decrypt" << endl;
     cout << "Pilih Opsi : ";
@@ -41,15 +46,17 @@ int main() {
     switch (option) {
     case 1:
         cout << "Teks Anda : ";
-        cin.ignore(); 
+        cin.ignore();
         getline(cin, plain_teks);
         encrypt();
+        cout << cipher_teks;
         break;
     case 2:
         cout << "Encrypt Anda : ";
-        cin.ignore(); 
+        cin.ignore();
         getline(cin, cipher_teks);
         decrypt();
+        cout << plain_teks;
         break;
     default:
         cout << "Tidak Ada Pilihan!";
