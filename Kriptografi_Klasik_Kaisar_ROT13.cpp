@@ -8,18 +8,18 @@ using namespace std;
 
 //Global Deklarasi
 string plain_teks, cipher_teks;
-char e;
+int e;
 short option;
 
 //Encryption
 void encrypt() {
     for (int i = 0; i < plain_teks.length(); i++) {
-        e = plain_teks[i];
+        e = tolower(plain_teks[i]);
         e = e + 13;
-        if (e > 122){
+        if (e > 122) {
             e = e - 26;
         }
-        cipher_teks = cipher_teks + e;
+        cipher_teks = cipher_teks + char(e);
     }
 }
 
@@ -27,12 +27,12 @@ void encrypt() {
 //Decryption
 void decrypt() {
     for (int i = 0; i < cipher_teks.length(); i++) {
-        e = cipher_teks[i];
+        e = tolower(cipher_teks[i]);
         e = e - 13;
-        if (e < 97){
+        if (e < 97) {
             e = e + 26;
         }
-        plain_teks = plain_teks + e;
+        plain_teks = plain_teks + char(e);
     }
 }
 
@@ -47,14 +47,14 @@ int main() {
     switch (option) {
     case 1:
         cout << "Teks Anda : ";
-        cin.ignore(); 
+        cin.ignore();
         getline(cin, plain_teks);
         encrypt();
         cout << cipher_teks;
         break;
     case 2:
         cout << "Encrypt Anda : ";
-        cin.ignore(); 
+        cin.ignore();
         getline(cin, cipher_teks);
         decrypt();
         cout << plain_teks;
