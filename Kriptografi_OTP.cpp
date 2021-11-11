@@ -11,7 +11,7 @@ char e_plain_teks, e_kunci;
 string encrypt(){
     for(int i=0; i < plain_teks.length(); i++){
         e_plain_teks = toupper(plain_teks[i]);
-        e_kunci = rand() % 26 + 64;
+        e_kunci = rand() % 26 + 65;
         
         e_plain_teks = ((e_plain_teks + e_kunci) - 128) % 26 + 64;
         cipher_teks = cipher_teks + e_plain_teks;
