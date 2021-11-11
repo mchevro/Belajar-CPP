@@ -10,11 +10,11 @@ char e_plain_teks, e_kunci;
 //Generate OTP
 string encrypt(){
     for(int i=0; i < plain_teks.length(); i++){
-        e_plain_teks = toupper(plain_teks[i]);
-        e_kunci = rand() % 26 + 65;
+        e_plain_teks = toupper(plain_teks[i]); //Menjadikan nilai variable plain_teks huruf besar semua
+        e_kunci = rand() % 26 + 65; //Membuat random key 
         
-        e_plain_teks = ((e_plain_teks + e_kunci) - 128) % 26 + 64;
-        cipher_teks = cipher_teks + e_plain_teks;
+        e_plain_teks = ((e_plain_teks + e_kunci) - 128) % 26 + 64; //Membuat enkripsi
+        cipher_teks = cipher_teks + e_plain_teks; //Gabungkan e_plain_teks ke string cipher_teks
     }
     return cipher_teks;
 }
