@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(){
-    int a[5] = {41, 42, 576, 8, 11};
+    int a[5] = {5, 4, 3, 2, 1};
     int imaks, tmp;
     
     for(int i=4; i>=0; i--){
